@@ -1,0 +1,1 @@
+call flower_delivery.generate_salary_report("$input_month", "$input_year");

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="login">
+    <h1>Создайте отчёт</h1>
+    <form action="{{url_for('report_bp.create_report')}}" method="post">
+        <select name="report" id="report">
+            <option value="">--Выбирете отчёт--</option>
+            <option value="year_moth_rep">Отчёт за год и месяц</option>
+            <option value="banana">Отчёт за полугодие</option>
+            <option value="orange">Отчёт успеваемости курьеров</option>
+        </select><br>
+        <select name="month" id="month">
+            <option value="">--Выберите месяц--</option>
+            <option value="1">Январь</option>
+            <option value="2">Февраль</option>
+            <option value="3">Март</option>
+            <option value="4">Апрель</option>
+            <option value="5">Май</option>
+            <option value="6">Июнь</option>
+            <option value="7">Июль</option>
+            <option value="8">Август</option>
+            <option value="9">Сентябрь</option>
+            <option value="10">Октябрь</option>
+            <option value="11">Ноябрь</option>
+            <option value="12">Декабрь</option>
+        </select>
+        <select name="year" id="year">
+            <option value="">--Выберите год--</option>
+            {% for year in range(2024, 1999, -1) %}
+            <option value="{{ year }}">{{ year }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" >Создать</button>
+
+    </form>
+</div >
+{% endblock %}

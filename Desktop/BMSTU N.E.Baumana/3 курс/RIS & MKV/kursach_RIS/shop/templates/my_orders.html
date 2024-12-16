@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="cart">
+    <h1>Выши заказы</h1>
+    {% if my_orders %}
+        <div class="cart_container">
+            {% for order in my_orders %}
+                <div class="cart_item" >
+                    <!-- {% for flower in flowers %} -->
+                        <!-- <img class="flower_image" src="{{order[3]}}" alt="" style="width: 140px;">
+                        <h3 class="flower_name">{{order[4]}} </h3>  -->
+                    <!-- {% endfor %} -->
+                    <p class="item_cost" > 
+                        Цена: {{order[1]}} ₽
+                    </p>
+                    <p>Дата и время доставки: {{order[2]}}</p>
+                    <p>Статус заказа: </p>
+                </div>
+            {% endfor %}  
+        </div>
+    {% else %}
+        <h1 class="delete_from_cart">Вы всё ещё не сделали у нас заказ <i class="fa-solid fa-face-sad-cry"></i></h1>
+    {% endif %}
+</div>
+{% endblock %}
+
+

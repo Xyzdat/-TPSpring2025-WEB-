@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="select_cont">
+    <h1>Введите имя курьера:</h1>
+        <form action="" method="post">
+            <label for="courier_name"> </label>
+            <input type="sql" name="courier_name">
+            <br>
+            <input type="submit" value="submit" class="button">
+        </form>
+    <div class="select_request">
+        <table>
+            <thead>
+                <tr>
+                    <th>Курьеры</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for worker in workers %}
+                    <tr>    
+                        <td>{{worker[1]}}</td>
+                    </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock%}

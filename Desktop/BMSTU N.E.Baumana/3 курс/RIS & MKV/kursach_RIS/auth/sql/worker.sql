@@ -1,0 +1,1 @@
+SELECT * FROM user where username = "$username" and password = "$password"

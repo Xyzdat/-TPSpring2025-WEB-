@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="cart">
+    <h1>Корзина</h1>
+    {% if cart %}
+        <div class="cart_container">
+            {% for cart in cart %}
+                <div class="cart_item" data-id="{{ cart['b_id'] }}">
+                    <img class="flower_image" src="{{cart['img_src']}}" alt="" style="width: 140px;">
+                    <h3 class="flower_name"> Название: {{cart['b_name']}}</h3> 
+                    <p class="item_cost" data-cost-per-item="{{ cart['b_cost'] }}"> 
+                        Цена: {{cart['b_cost'] * cart['quantity']}} ₽
+                    </p>
+                    <div class="quantity-controls">
+                        <button class="btn_decrease" ><i class="fa-solid fa-minus"></i></button>
+                        <input class="quantity_input" value="{{cart['quantity']}}" readonly>
+                        <button class="btn_increase" ><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div class="delete_from_cart">
+                        <button id="del_from_cart" class="del_from_cart"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                </div>
+            {% endfor %}  
+        </div>
+        <h4 id="total_sum">Общая стоимость заказа: {{session['total_sum']}} ₽</h4>
+        <a class="to_order" href="{{url_for('shop_bp.order')}}">Перейти к оформлению заказа</a>
+    {% endif %}
+    {% if cart == []  %}
+        <p class="delete_from_cart">Корзина пуста</p>
+    {% endif %}
+</div>
+{% endblock %}
+
+

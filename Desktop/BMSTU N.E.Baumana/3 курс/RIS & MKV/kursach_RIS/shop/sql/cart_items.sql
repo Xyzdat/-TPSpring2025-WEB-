@@ -1,0 +1,1 @@
+Select * from bunchs where b_id = "$b_id"

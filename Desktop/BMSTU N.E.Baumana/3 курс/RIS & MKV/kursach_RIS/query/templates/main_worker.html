@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="main_worker">
+    <h2>Выбирете действие</h2>
+    {% if session['user_group'] == 'manager' %}
+        <p><a href="{{url_for('query_bp.get_category')}}">Запрос по заказам</a></p>
+        <p><a href="{{url_for('query_bp.show_couriers')}}">Запрос по курьерам</a></p>
+        <p><a href="{{url_for('report_bp.report')}}">Отчёт по продажам за год и месяц</a></p>
+        <p><a href="{{url_for('report_bp.create_report')}}">Создание отчёта по продажам за год и месяц</a></p>
+    {% elif session['user_group'] == 'seller' %}
+        <p><a href="{{url_for('query_bp.seller')}}">Просмотр заказов и распределение заказов</a></p>
+    {% elif session['user_group'] == 'courier' %}
+        <p><a href="{{url_for('query_bp.courier_ord')}}">Ваши заказы</a></p>
+    {% elif session['user_group'] == 'director' %}
+        <p><a href="{{url_for('query_bp.get_category')}}">Запрос по заказам</a></p>
+        <p><a href="{{url_for('report_bp.report')}}">Отчёт по продажам за год и месяц</a></p>
+    {% elif session['user_group'] == 'buhgalter' %}
+        <p><a href="{{url_for('report_bp.report')}}">Отчёт по продажам за год и месяц</a></p>
+        <p><a href="{{url_for('report_bp.create_report')}}">Создание отчёта по продажам за год и месяц</a></p>
+    {% endif %}
+</div >
+{% endblock %}

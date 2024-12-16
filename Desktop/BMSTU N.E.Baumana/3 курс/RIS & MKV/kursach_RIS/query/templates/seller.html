@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+    {% block content %}
+    <div class="login">
+        <form action="" method="post">
+            <label for="courier_name">Выберете дату заказа</label>
+            <input type="date" name="date_seller" style="margin-bottom: 20px;">
+            <button type="submit">Подтвердить</button>
+        </form>
+        
+        <a class="home1" href="{{url_for('query_bp.main_workers')}}">Главная страница</a>
+    </div>
+{% endblock %}

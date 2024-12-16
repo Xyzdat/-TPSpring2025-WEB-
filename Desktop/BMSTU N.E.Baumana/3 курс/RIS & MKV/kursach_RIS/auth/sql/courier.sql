@@ -1,0 +1,1 @@
+SELECT * from couriers WHERE courier_name = "$username" and password = "$password"

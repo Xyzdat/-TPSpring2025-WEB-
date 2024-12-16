@@ -1,0 +1,1 @@
+SELECT * from client where username="$username" and password="$password"

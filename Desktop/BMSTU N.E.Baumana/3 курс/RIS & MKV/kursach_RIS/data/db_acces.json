@@ -1,0 +1,5 @@
+{
+    "worker": ["auth_bp", "query_bp"],
+    "user": ["auth_bp"]
+  }
+  

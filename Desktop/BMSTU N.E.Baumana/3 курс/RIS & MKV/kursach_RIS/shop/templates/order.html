@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="order">
+{%  if session['cart'] %}
+<h4 id="total_sum">Общая стоимость заказа: {{session['total_sum']}} ₽</h4>
+<form action="" method="post" >
+   <p>
+        <label for="delivery-date">Введите дату, к которой было бы удобно доставить цветы:</label>
+        <input type="datetime-local" name="date" id="delivery-date" class="input-date" required>
+        <span id="date-error" style="color: red; display: none;">[Поле обязательно для заполнения]</span>
+    </p>
+    <p>
+        <label for="adres">Введите ваш адрес:</label>
+        <input type="text" name="adres" id="adres" size="32" required>
+        <span id="adres-error" style="color: red; display: none;">[Поле обязательно для заполнения]</span>
+    </p>
+    <button type="submit">Оформить заказ</button>
+</form>
+<a href="{{ url_for('shop_bp.cart')}}">Вернуться обратно в корзину <i class="fa-solid fa-rotate-left"></i></a>
+{% else %}
+    <h1>Заказ успешно выполнен</h1>
+    <a  href="{{ url_for('shop_bp.main_shop') }}">Вернуться к покупкам!</a>
+{% endif %}
+</div>
+{% endblock %}
