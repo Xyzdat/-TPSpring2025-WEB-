@@ -1,1 +1,0 @@
-select * from bunchs where b_name = "$flower_name"
